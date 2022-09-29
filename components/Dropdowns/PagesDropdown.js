@@ -16,6 +16,13 @@ const PagesDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+  function handleClickOutside(event) {
+    if (btnDropdownRef.current && !btnDropdownRef.current.contains(event.target)) {
+      setDropdownPopoverShow(false);
+    }
+  }
+  // Bind
+  document.addEventListener("mousedown", handleClickOutside);
   return (
     <>
       <a
@@ -27,7 +34,7 @@ const PagesDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Demo Pages
+        Programs
       </a>
       <div
         ref={popoverDropdownRef}
@@ -41,16 +48,16 @@ const PagesDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Admin Layout
+          Technical
         </span>
         <Link href="/admin/dashboard">
           <a
-            href="#pablo"
+            href="#"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Dashboard
+            Full Stack
           </a>
         </Link>
         <Link href="/admin/settings">
@@ -60,7 +67,7 @@ const PagesDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Settings
+            Data Science
           </a>
         </Link>
         <Link href="/admin/tables">
@@ -70,7 +77,7 @@ const PagesDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Tables
+            Cloud Computing
           </a>
         </Link>
         <Link href="/admin/maps">
@@ -80,7 +87,7 @@ const PagesDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Maps
+            Cyber Security
           </a>
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
@@ -89,7 +96,7 @@ const PagesDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Auth Layout
+          Non-Technical
         </span>
         <Link href="/auth/login">
           <a
@@ -98,7 +105,7 @@ const PagesDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Login
+            Acountant
           </a>
         </Link>
         <Link href="/auth/register">
@@ -108,35 +115,37 @@ const PagesDropdown = () => {
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Register
+            Sale and Relation-Ship Management
           </a>
         </Link>
-        <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-        <span
-          className={
-            "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
-          }
-        >
-          No Layout
-        </span>
-        <Link href="/landing">
+        <Link href="/auth/register">
           <a
             href="#pablo"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Landing
+            Supply Chain Management
           </a>
         </Link>
-        <Link href="/profile">
+        <Link href="/auth/register">
           <a
             href="#pablo"
             className={
               "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
             }
           >
-            Profile
+            Ecommerce Management
+          </a>
+        </Link>
+        <Link href="/auth/register">
+          <a
+            href="#pablo"
+            className={
+              "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+            }
+          >
+            Priority Banking
           </a>
         </Link>
       </div>
