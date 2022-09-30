@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from 'next/image'
 // components
 
 import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
@@ -16,7 +17,14 @@ export default function Navbar(props) {
               <a
                 className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
                 href="#pablo"
+                style={{color:"#9a9a35",fontSize:"18px"}}
               >
+                {/* <img
+                  src="/img/brand/logo.png"
+                  alt="S2S Fintech"
+                  width={100}
+                  
+                ></img> */}
                 S2S Fintech
               </a>
             </Link>
@@ -35,9 +43,9 @@ export default function Navbar(props) {
             }
             id="example-navbar-warning"
           >
-            
+
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              
+
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"

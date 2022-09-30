@@ -7,6 +7,13 @@ const IndexDropdown = () => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
   const popoverDropdownRef = React.createRef();
+
+  const [_document, set_document] = React.useState(null)
+
+  React.useEffect(() => {
+    set_document(document)
+  }, [])
+
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-start",
@@ -23,8 +30,11 @@ const IndexDropdown = () => {
     }
   }
   // Bind
-  document.addEventListener("mousedown", handleClickOutside);
-  
+  if (_document) {
+    _document.addEventListener("mousedown", handleClickOutside);
+  }
+
+
   return (
     <>
       <a

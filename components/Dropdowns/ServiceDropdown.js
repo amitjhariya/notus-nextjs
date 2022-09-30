@@ -7,6 +7,12 @@ const ServiceDropdown = () => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
   const popoverDropdownRef = React.createRef();
+  const [_document, set_document] = React.useState(null)
+
+  React.useEffect(() => {
+    set_document(document)
+  }, [])
+  
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-start",
@@ -17,13 +23,16 @@ const ServiceDropdown = () => {
     setDropdownPopoverShow(false);
   };
 
+
   function handleClickOutside(event) {
     if (btnDropdownRef.current && !btnDropdownRef.current.contains(event.target)) {
       closeDropdownPopover();
     }
   }
   // Bind
-  document.addEventListener("mousedown", handleClickOutside);
+  if (_document) {
+    _document.addEventListener("mousedown", handleClickOutside);
+  }
   
   return (
     <>
